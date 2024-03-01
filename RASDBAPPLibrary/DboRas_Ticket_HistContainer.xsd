@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_ticket_histcontainer" xmlns:dboras_ticket_histbg="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_ticket_histbg">
+<xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_ticket_histbg" schemaLocation="DboRas_Ticket_HistBG.xsd"/>
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability">
+<info:resourceAdapter xmlns:info="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability" version="7.5.0.5"/>
+</xsd:appinfo>
+</xsd:annotation>
+
+<xsd:complexType name="DboRas_Ticket_HistContainer">
+<xsd:sequence>
+<xsd:element name="DboRas_Ticket_HistBG" type="dboras_ticket_histbg:DboRas_Ticket_HistBG" minOccurs="1" maxOccurs="unbounded"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_gc_negative_endorsement_service_loggingcontainer" xmlns:dboras_gc_negative_endorsement_service_loggingbg="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_gc_negative_endorsement_service_loggingbg">
+<xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_gc_negative_endorsement_service_loggingbg" schemaLocation="DboRas_Gc_Negative_Endorsement_Service_LoggingBG.xsd"/>
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability">
+<info:resourceAdapter xmlns:info="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability" version="7.5.0.5"/>
+</xsd:appinfo>
+</xsd:annotation>
+
+<xsd:complexType name="DboRas_Gc_Negative_Endorsement_Service_LoggingContainer">
+<xsd:sequence>
+<xsd:element name="DboRas_Gc_Negative_Endorsement_Service_LoggingBG" type="dboras_gc_negative_endorsement_service_loggingbg:DboRas_Gc_Negative_Endorsement_Service_LoggingBG" minOccurs="1" maxOccurs="unbounded"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>

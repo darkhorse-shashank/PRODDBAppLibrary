@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_account_mastercontainer" xmlns:dboras_account_masterbg="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_account_masterbg">
+<xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_account_masterbg" schemaLocation="DboRas_Account_MasterBG.xsd"/>
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability">
+<info:resourceAdapter xmlns:info="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability" version="7.5.0.5"/>
+</xsd:appinfo>
+</xsd:annotation>
+
+<xsd:complexType name="DboRas_Account_MasterContainer">
+<xsd:sequence>
+<xsd:element name="DboRas_Account_MasterBG" type="dboras_account_masterbg:DboRas_Account_MasterBG" minOccurs="1" maxOccurs="unbounded"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>

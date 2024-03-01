@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/documentmatrix"
+	xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+	<xsd:import
+		namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata"
+		schemaLocation="JDBCASI.xsd" />
+
+	<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability">
+<info:resourceAdapter xmlns:info="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability" version="7.5.0.5"/>
+</xsd:appinfo>
+<xsd:appinfo source="commonj.connector.asi"><asi:annotationSet xmlns:asi="commonj.connector.asi" asiNSURI="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata"></asi:annotationSet></xsd:appinfo></xsd:annotation>
+
+	<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="commonj.connector.asi">
+<asi:annotationSet xmlns:asi="commonj.connector.asi" asiNSURI="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata"/>
+</xsd:appinfo>
+</xsd:annotation>
+	<xsd:complexType name="DocumentMatrix">
+		<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCBusinessObjectTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:SelectStatement>SELECT mst.DOCUMENT_TYPE,
+ mst.IS_MANDATORY,
+ dcmt.DOCID,
+ dcmt.TICKET_ID,
+ dcmt.IS_SUBMITTED,
+ dcmt.name,
+ dcmt.path,
+ dcmt.DMS_FLAG
+, dcmt.DMS_UPLOADED_DATE, dcmt.DMS_UPLOADED_BY, dcmt.DMS_REMARKS FROM
+ (SELECT DOCUMENT_TYPE,IS_MANDATORY,LOB FROM RAS_DOCUMENT_MASTER WHERE lob =? and REQUEST_TYPE =?
+AND IS_ACTIVE=&apos;Y&apos; ) mst
+LEFT JOIN
+ (SELECT SLNO as &quot;DOCID&quot;,
+   DOC_TYPE,
+   TICKET_ID,
+   IS_SUBMITTED,
+   name,
+   path,
+   DMS_FLAG,   DMS_UPLOADED_DATE,   DMS_UPLOADED_BY,   DMS_REMARKS
+ FROM RAS_TICKET_DOCUMENTS
+ WHERE TICKET_ID = ?
+ ) dcmt
+ON(dcmt.doc_type =mst.DOCUMENT_TYPE)</jdbcasi:SelectStatement>
+</jdbcasi:JDBCBusinessObjectTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+		<xsd:sequence minOccurs="1" maxOccurs="1">
+			<xsd:element name="document_type" type="xsd:string"
+				nillable="true" minOccurs="0" maxOccurs="1">
+				<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:ColumnName>DOCUMENT_TYPE</jdbcasi:ColumnName>
+<jdbcasi:PrimaryKey>false</jdbcasi:PrimaryKey>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="is_mandatory" type="xsd:string"
+				nillable="true" minOccurs="0" maxOccurs="1">
+				<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:ColumnName>IS_MANDATORY</jdbcasi:ColumnName>
+<jdbcasi:PrimaryKey>false</jdbcasi:PrimaryKey>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="docid" type="xsd:int" nillable="true"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:ColumnName>DOCID</jdbcasi:ColumnName>
+<jdbcasi:PrimaryKey>false</jdbcasi:PrimaryKey>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ticket_id" type="xsd:int" nillable="true"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:ColumnName>TICKET_ID</jdbcasi:ColumnName>
+<jdbcasi:PrimaryKey>false</jdbcasi:PrimaryKey>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="is_submitted" type="xsd:boolean"
+				nillable="true" minOccurs="0" maxOccurs="1">
+				<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:ColumnName>IS_SUBMITTED</jdbcasi:ColumnName>
+<jdbcasi:PrimaryKey>false</jdbcasi:PrimaryKey>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="name" type="xsd:string" nillable="true"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:ColumnName>name</jdbcasi:ColumnName>
+<jdbcasi:PrimaryKey>false</jdbcasi:PrimaryKey>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="path" type="xsd:string" nillable="true"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:ColumnName>path</jdbcasi:ColumnName>
+<jdbcasi:PrimaryKey>false</jdbcasi:PrimaryKey>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="dms_flag" type="xsd:int" nillable="true"
+				minOccurs="0" maxOccurs="1">
+				<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:ColumnName>DMS_FLAG</jdbcasi:ColumnName>
+<jdbcasi:PrimaryKey>false</jdbcasi:PrimaryKey>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="dms_uploaded_date"
+				type="xsd:dateTime">
+				<xsd:annotation>
+            		<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+            			<metadata:JDBCAttributeTypeMetadata xmlns:metadata="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+            				<metadata:ColumnName>DMS_UPLOADED_DATE</metadata:ColumnName>
+            				<metadata:PrimaryKey>false</metadata:PrimaryKey>
+            				<metadata:DateType>TimeStamp</metadata:DateType>
+            			</metadata:JDBCAttributeTypeMetadata>
+            		</xsd:appinfo>
+            	</xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="dms_uploaded_by"
+				type="xsd:string">
+				<xsd:annotation>
+            		<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+            			<metadata:JDBCAttributeTypeMetadata xmlns:metadata="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+            				<metadata:ColumnName>DMS_UPLOADED_BY</metadata:ColumnName>
+            				<metadata:PrimaryKey>false</metadata:PrimaryKey>
+            			</metadata:JDBCAttributeTypeMetadata>
+            		</xsd:appinfo>
+            	</xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="dms_remarks"
+				type="xsd:string">
+				<xsd:annotation>
+            		<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+            			<metadata:JDBCAttributeTypeMetadata xmlns:metadata="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+            				<metadata:ColumnName>DMS_REMARKS</metadata:ColumnName>
+            				<metadata:PrimaryKey>false</metadata:PrimaryKey>
+            			</metadata:JDBCAttributeTypeMetadata>
+            		</xsd:appinfo>
+            	</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="parameter1" type="xsd:string"
+				nillable="true" minOccurs="1" maxOccurs="1">
+				<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:ColumnName>Parameter1</jdbcasi:ColumnName>
+<jdbcasi:PrimaryKey>false</jdbcasi:PrimaryKey>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="parameter2" type="xsd:string"
+				nillable="true" minOccurs="1" maxOccurs="1">
+				<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:ColumnName>Parameter2</jdbcasi:ColumnName>
+<jdbcasi:PrimaryKey>false</jdbcasi:PrimaryKey>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="parameter3" type="xsd:int"
+				nillable="true" minOccurs="1" maxOccurs="1">
+				<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:ColumnName>Parameter3</jdbcasi:ColumnName>
+<jdbcasi:PrimaryKey>false</jdbcasi:PrimaryKey>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="jdbcwhereclause" type="xsd:string"
+				nillable="true" minOccurs="0" maxOccurs="1">
+				<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:JDBCAttributeTypeMetadata xmlns:jdbcasi="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/metadata">
+<jdbcasi:PrimaryKey>false</jdbcasi:PrimaryKey>
+</jdbcasi:JDBCAttributeTypeMetadata>
+</xsd:appinfo>
+</xsd:annotation>
+			</xsd:element>
+
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>

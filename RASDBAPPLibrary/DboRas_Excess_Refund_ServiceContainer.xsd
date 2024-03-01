@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_excess_refund_servicecontainer" xmlns:dboras_excess_refund_servicebg="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_excess_refund_servicebg">
+<xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_excess_refund_servicebg" schemaLocation="DboRas_Excess_Refund_ServiceBG.xsd"/>
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability">
+<info:resourceAdapter xmlns:info="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability" version="7.5.0.5"/>
+</xsd:appinfo>
+</xsd:annotation>
+
+<xsd:complexType name="DboRas_Excess_Refund_ServiceContainer">
+<xsd:sequence>
+<xsd:element name="DboRas_Excess_Refund_ServiceBG" type="dboras_excess_refund_servicebg:DboRas_Excess_Refund_ServiceBG" minOccurs="1" maxOccurs="unbounded"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>

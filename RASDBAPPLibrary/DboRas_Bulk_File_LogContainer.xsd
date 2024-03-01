@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_bulk_file_logcontainer" xmlns:dboras_bulk_file_logbg="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_bulk_file_logbg">
+<xsd:import namespace="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_bulk_file_logbg" schemaLocation="DboRas_Bulk_File_LogBG.xsd"/>
+<xsd:annotation xml:space="preserve">
+<xsd:appinfo source="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability">
+<info:resourceAdapter xmlns:info="http://www.ibm.com/xmlns/prod/j2ca/versionCompatability" version="7.5.0.5"/>
+</xsd:appinfo>
+</xsd:annotation>
+
+<xsd:complexType name="DboRas_Bulk_File_LogContainer">
+<xsd:sequence>
+<xsd:element name="DboRas_Bulk_File_LogBG" type="dboras_bulk_file_logbg:DboRas_Bulk_File_LogBG" minOccurs="1" maxOccurs="unbounded"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:schema>
